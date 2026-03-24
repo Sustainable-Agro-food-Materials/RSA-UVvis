@@ -1,0 +1,69 @@
+// electron-fix.js - Fix completo para Electron
+(function() {
+    console.log('🔧 Iniciando fix para Electron...');
+    
+    // Función para esperar a jQuery
+    function waitForJQuery() {
+        if (typeof jQuery !== 'undefined' && typeof $ !== 'undefined') {
+            console.log('✓ jQuery disponible');
+            window.$ = jQuery; // Asegurar que $ es global
+            
+            // Esperar a Shiny
+            function waitForShiny() {
+                if (typeof Shiny !== 'undefined') {
+                    console.log('✓ Shiny disponible');
+                    
+                    // Cuando el documento esté listo
+                    $(document).ready(function() {
+                        console.log('✓ Documento listo, inicializando inputs...');
+                        
+                        // Reinicializar todos los fileInputs
+                        setTimeout(function() {
+                            $('input[type="file"]').each(function() {
+                                var id = $(this).attr('id');
+                                console.log('📁 File input encontrado:', id);
+                                
+                                // Forzar actualización de Shiny
+                                if (Shiny) {
+                                    // Disparar evento de cambio
+                                    $(this).trigger('change');
+                                    
+                                    // Reinicializar el input específico
+                                    try {
+                                        Shiny.setInputValue(id + '_filelist', null);
+                                        Shiny.setInputValue(id + '_files', null);
+                                    } catch(e) {}
+                                }
+                            });
+                            
+                            // Reinicializar todos los inputs de Shiny
+                            if (Shiny.initializeInputs) {
+                                Shiny.initializeInputs();
+                                console.log('✓ Inputs inicializados');
+                            }
+                            
+                            if (Shiny.bindAll) {
+                                Shiny.bindAll();
+                                console.log('✓ Bind completado');
+                            }
+                            
+                            console.log('✅ Fix completado');
+                        }, 1000);
+                    });
+                    
+                } else {
+                    console.log('⏳ Esperando a Shiny...');
+                    setTimeout(waitForShiny, 100);
+                }
+            }
+            
+            waitForShiny();
+            
+        } else {
+            console.log('⏳ Esperando a jQuery...');
+            setTimeout(waitForJQuery, 100);
+        }
+    }
+    
+    waitForJQuery();
+})();
