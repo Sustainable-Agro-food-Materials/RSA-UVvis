@@ -87,12 +87,12 @@ IHSM La Mayora (CSIC–UMA)
 This project is licensed under the MIT License.
 
 # Citation
-If you use this software in your research, please cite:
+If you use this software in your research, please cite as below:
 
 Rodriguez-Rodriguez D, Solano-Moreno FJ, Muñoz-Perez MR, Guzman-Puyol S, Heredia-Guerrero JA. (2026).
 **RSA-UVvis: A desktop software for antioxidant capacity analysis**. Version 1.0.0.
 
-DOI: to be assigned
+DOI: 10.5281/zenodo.19206254
 
 # Notes
 - The repository contains the source code only
