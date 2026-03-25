@@ -1,5 +1,5 @@
 # RSA-UVvis
-RSA-UVvis is a desktop and web-based application for the analysis of antioxidant activity using UV–Vis spectroscopy data, specifically designed for DPPH and ABTS assays.
+RSA-UVvis is a desktop and web-based application for the analysis of antioxidant activity using UV-vis spectroscopy data, specifically designed for DPPH and ABTS assays.
 
 The software enables automated processing of spectral data, peak detection, baseline correction, and calculation of Radical Scavenging Activity (RSA), providing both visualization and exportable results.
 # Features
